@@ -1,0 +1,40 @@
+{% set name = "django-picklefield" %}
+{% set version = "3.0.1" %}
+
+package:
+  name: "{{ name|lower }}"
+  version: "{{ version }}"
+
+source:
+  url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
+  sha256: 15ccba592ca953b9edf9532e64640329cd47b136b7f8f10f2939caa5f9ce4287
+
+build:
+  number: 0
+  script: "{{ PYTHON }} -m pip install . -vv"
+
+requirements:
+  host:
+    - django >=2.2
+    - pip
+    - python
+  run:
+    - django >=2.2
+    - python
+
+test:
+  imports:
+    - picklefield
+
+about:
+  home: "http://github.com/gintas/django-picklefield"
+  license: MIT
+  license_family: MIT
+  license_file: 
+  summary: "Pickled object field for Django"
+  doc_url: https://github.com/gintas/django-picklefield
+  dev_url: https://github.com/gintas/django-picklefield
+
+extra:
+  recipe-maintainers:
+    - https://github.com/gb119
